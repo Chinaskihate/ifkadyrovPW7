@@ -14,6 +14,7 @@
 		404AB98A27A1A7C5004FD9E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404AB98827A1A7C5004FD9E1 /* LaunchScreen.storyboard */; };
 		404AB99527A1A7C5004FD9E1 /* ifkadyrovPW7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB99427A1A7C5004FD9E1 /* ifkadyrovPW7Tests.swift */; };
 		404AB9A027A1A7C5004FD9E1 /* ifkadyrovPW7UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB99F27A1A7C5004FD9E1 /* ifkadyrovPW7UITests.swift */; };
+		404AB9B127A1B4A9004FD9E1 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB9B027A1B4A8004FD9E1 /* UIView+Pin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		404AB99B27A1A7C5004FD9E1 /* ifkadyrovPW7UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ifkadyrovPW7UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404AB99F27A1A7C5004FD9E1 /* ifkadyrovPW7UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifkadyrovPW7UITests.swift; sourceTree = "<group>"; };
 		404AB9A127A1A7C5004FD9E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		404AB9B027A1B4A8004FD9E1 /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,9 @@
 		404AB97C27A1A7C4004FD9E1 /* ifkadyrovPW7 */ = {
 			isa = PBXGroup;
 			children = (
-				404AB97D27A1A7C4004FD9E1 /* AppDelegate.swift */,
-				404AB97F27A1A7C4004FD9E1 /* SceneDelegate.swift */,
-				404AB98127A1A7C4004FD9E1 /* ViewController.swift */,
+				404AB9AF27A1B423004FD9E1 /* UIServices */,
+				404AB9AE27A1AC79004FD9E1 /* Controllers */,
+				404AB9AD27A1AC48004FD9E1 /* Delegates */,
 				404AB98627A1A7C5004FD9E1 /* Assets.xcassets */,
 				404AB98827A1A7C5004FD9E1 /* LaunchScreen.storyboard */,
 				404AB98B27A1A7C5004FD9E1 /* Info.plist */,
@@ -124,6 +126,34 @@
 			);
 			path = ifkadyrovPW7UITests;
 			sourceTree = "<group>";
+		};
+		404AB9AD27A1AC48004FD9E1 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				404AB97F27A1A7C4004FD9E1 /* SceneDelegate.swift */,
+				404AB97D27A1A7C4004FD9E1 /* AppDelegate.swift */,
+			);
+			name = Delegates;
+			path = ifkadyrovPW7/Delegates;
+			sourceTree = SOURCE_ROOT;
+		};
+		404AB9AE27A1AC79004FD9E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				404AB98127A1A7C4004FD9E1 /* ViewController.swift */,
+			);
+			name = Controllers;
+			path = ifkadyrovPW7/Controllers;
+			sourceTree = SOURCE_ROOT;
+		};
+		404AB9AF27A1B423004FD9E1 /* UIServices */ = {
+			isa = PBXGroup;
+			children = (
+				404AB9B027A1B4A8004FD9E1 /* UIView+Pin.swift */,
+			);
+			name = UIServices;
+			path = ifkadyrovPW7/UIServices;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -256,6 +286,7 @@
 			files = (
 				404AB98227A1A7C4004FD9E1 /* ViewController.swift in Sources */,
 				404AB97E27A1A7C4004FD9E1 /* AppDelegate.swift in Sources */,
+				404AB9B127A1B4A9004FD9E1 /* UIView+Pin.swift in Sources */,
 				404AB98027A1A7C4004FD9E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
