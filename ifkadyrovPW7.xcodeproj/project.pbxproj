@@ -15,6 +15,7 @@
 		404AB99527A1A7C5004FD9E1 /* ifkadyrovPW7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB99427A1A7C5004FD9E1 /* ifkadyrovPW7Tests.swift */; };
 		404AB9A027A1A7C5004FD9E1 /* ifkadyrovPW7UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB99F27A1A7C5004FD9E1 /* ifkadyrovPW7UITests.swift */; };
 		404AB9B127A1B4A9004FD9E1 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB9B027A1B4A8004FD9E1 /* UIView+Pin.swift */; };
+		404AB9B427A1B56C004FD9E1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB9B327A1B56C004FD9E1 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		404AB99F27A1A7C5004FD9E1 /* ifkadyrovPW7UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifkadyrovPW7UITests.swift; sourceTree = "<group>"; };
 		404AB9A127A1A7C5004FD9E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404AB9B027A1B4A8004FD9E1 /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		404AB9B327A1B56C004FD9E1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		404AB97C27A1A7C4004FD9E1 /* ifkadyrovPW7 */ = {
 			isa = PBXGroup;
 			children = (
+				404AB9B227A1B55D004FD9E1 /* UIControls */,
 				404AB9AF27A1B423004FD9E1 /* UIServices */,
 				404AB9AE27A1AC79004FD9E1 /* Controllers */,
 				404AB9AD27A1AC48004FD9E1 /* Delegates */,
@@ -153,6 +156,15 @@
 			);
 			name = UIServices;
 			path = ifkadyrovPW7/UIServices;
+			sourceTree = SOURCE_ROOT;
+		};
+		404AB9B227A1B55D004FD9E1 /* UIControls */ = {
+			isa = PBXGroup;
+			children = (
+				404AB9B327A1B56C004FD9E1 /* CustomButton.swift */,
+			);
+			name = UIControls;
+			path = ifkadyrovPW7/UIControls;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -288,6 +300,7 @@
 				404AB97E27A1A7C4004FD9E1 /* AppDelegate.swift in Sources */,
 				404AB9B127A1B4A9004FD9E1 /* UIView+Pin.swift in Sources */,
 				404AB98027A1A7C4004FD9E1 /* SceneDelegate.swift in Sources */,
+				404AB9B427A1B56C004FD9E1 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
