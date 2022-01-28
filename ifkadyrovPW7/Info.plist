@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We need your location to find you</string>
+	<key>MBXAccessToken</key>
+	<string>pk.eyJ1IjoibWFya3dhbnRzdG9rZW4iLCJhIjoiY2t5eW9kNmxvMDJncDJwbzBneHBocHp2eiJ9.NI9k1RcK7ackDUanHqcxQQ</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to find you</string>
 	<key>CFBundleDevelopmentRegion</key>

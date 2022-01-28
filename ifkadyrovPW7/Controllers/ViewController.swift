@@ -69,7 +69,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let mapHeight : CGFloat = view.frame.size.height
         
         mapView.frame = CGRect(x:leftMargin, y:topMargin, width: mapWidth, height: mapHeight)
-        mapView.showsUserLocation = true
     }
     
     private func configureButtonStackView() {
@@ -155,6 +154,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     private func buildPath() {
+        if (coordinates.count != 2) {
+            print("Coordinates parsing error")
+            return
+        }
         print("From: long - \(coordinates[0].longitude), lat - \(coordinates[0].latitude)")
         print("To: long - \(coordinates[1].longitude), lat - \(coordinates[1].latitude)")
         let fromPlaceMark = MKPlacemark(coordinate: coordinates[0])
