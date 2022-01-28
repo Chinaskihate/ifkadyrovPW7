@@ -9,10 +9,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate {
+    
+    var coordinates: [CLLocationCoordinate2D] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         configureUI()
         
     }
@@ -66,6 +69,7 @@ class ViewController: UIViewController {
         let mapHeight : CGFloat = view.frame.size.height
         
         mapView.frame = CGRect(x:leftMargin, y:topMargin, width: mapWidth, height: mapHeight)
+        mapView.showsUserLocation = true
     }
     
     private func configureButtonStackView() {
@@ -117,6 +121,74 @@ class ViewController: UIViewController {
     
     @objc func goButtonWasPressed() {
         print("Looking for a route from \(startLocation.text as String?) to \(endLocation.text as String?)")
+        
+        guard
+            let first = startLocation.text,
+            let second = endLocation.text,
+            first != second
+        else {
+            return
+        }
+        
+        let group = DispatchGroup()
+        group.enter()
+        getCoordinateFrom(address: first, completion: { [weak self] coords, _ in
+            if let coords = coords {
+                self?.coordinates.append(coords)
+            }
+            group.leave()
+        })
+        
+        group.enter()
+        getCoordinateFrom(address: second, completion: { [weak self] coords, _ in
+            if let coords = coords {
+                self?.coordinates.append(coords)
+            }
+            group.leave()
+        })
+        group.notify(queue: .main) {
+            DispatchQueue.main.async { [weak self] in
+                self?.buildPath()
+            }
+        }
+        coordinates = []
+    }
+    
+    private func buildPath() {
+        print("From: long - \(coordinates[0].longitude), lat - \(coordinates[0].latitude)")
+        print("To: long - \(coordinates[1].longitude), lat - \(coordinates[1].latitude)")
+        let fromPlaceMark = MKPlacemark(coordinate: coordinates[0])
+        let toPlaceMark = MKPlacemark(coordinate: coordinates[1])
+        
+        let fromItem = MKMapItem(placemark: fromPlaceMark)
+        let toItem = MKMapItem(placemark: toPlaceMark)
+        
+        let request = MKDirections.Request()
+        request.source = fromItem
+        request.destination = toItem
+        request.transportType = .automobile
+        
+        //request.requestsAlternateRoutes = true
+        let directions = MKDirections(request: request)
+        directions.calculate { (response, error) -> Void in
+            guard let response = response else {
+                if let error = error {
+                    print("Something is wrong! Error: \(error)")
+                }
+                return
+            }
+            
+            let route = response.routes[0]
+            self.mapView.addOverlay(route.polyline)
+            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let render = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        render.strokeColor = .systemOrange
+        render.lineWidth = 5.0
+        return render
     }
     
     @objc func clearButtonWasPressed() {
@@ -124,6 +196,9 @@ class ViewController: UIViewController {
         endLocation.text = ""
         clearButton.setTitleColor(.gray, for: .disabled)
         clearButton.isEnabled = false
+        for overlay:MKOverlay in mapView.overlays {
+            mapView.removeOverlay(overlay)
+        }
     }
     
     private let textStackView: UIStackView = {
@@ -166,6 +241,14 @@ class ViewController: UIViewController {
         control.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         return control
     }()
+    
+    private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> ()) {
+        DispatchQueue.global(qos: .background).async {
+            CLGeocoder().geocodeAddressString(address) {
+                completion($0?.first?.location?.coordinate, $1)
+            }
+        }
+    }
 }
 
 extension ViewController: UITextFieldDelegate {

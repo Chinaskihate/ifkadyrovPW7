@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>We need your location to find you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to find you</string>
 	<key>CFBundleDevelopmentRegion</key>
