@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     }
     
     private func configureTap() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
     }
@@ -52,7 +52,9 @@ class ViewController: UIViewController {
     
     private func configureButtons() {
         goButton.frame = CGRect(x: 0, y: 0, width: buttonStackView.frame.width * 0.6, height: buttonStackView.frame.height)
+        goButton.addTarget(self, action: #selector(goButtonWasPressed), for: .touchUpInside)
         clearButton.frame = CGRect(x: 0, y: 0, width: buttonStackView.frame.width * 0.3, height: buttonStackView.frame.height)
+        clearButton.addTarget(self, action: #selector(clearButtonWasPressed), for: .touchUpInside)
     }
     
     private func configureMapView() {
@@ -113,6 +115,17 @@ class ViewController: UIViewController {
         return goButton
     }()
     
+    @objc func goButtonWasPressed() {
+        print("Looking for a route from \(startLocation.text as String?) to \(endLocation.text as String?)")
+    }
+    
+    @objc func clearButtonWasPressed() {
+        startLocation.text = ""
+        endLocation.text = ""
+        clearButton.setTitleColor(.gray, for: .disabled)
+        clearButton.isEnabled = false
+    }
+    
     private let textStackView: UIStackView = {
         let control = UIStackView()
         return control
@@ -158,6 +171,17 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        if (textField == startLocation && endLocation.hasText ||
+            textField == endLocation && startLocation.hasText
+        ) {
+            goButtonWasPressed()
+        }
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textField.hasText) {
+            clearButton.isEnabled = true
+        }
     }
 }
