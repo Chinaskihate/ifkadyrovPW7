@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,11 +17,7 @@
 		404AB9B127A1B4A9004FD9E1 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB9B027A1B4A8004FD9E1 /* UIView+Pin.swift */; };
 		404AB9B427A1B56C004FD9E1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AB9B327A1B56C004FD9E1 /* CustomButton.swift */; };
 		40DC96FA27A46E9B00264A0F /* KeyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC96F927A46E9B00264A0F /* KeyStorage.swift */; };
-		40DC970327A475ED00264A0F /* MapboxCoreNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 40DC970227A475ED00264A0F /* MapboxCoreNavigation */; };
-		40DC970527A475ED00264A0F /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 40DC970427A475ED00264A0F /* MapboxNavigation */; };
 		40DC970727A47E1600264A0F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC970627A47E1600264A0F /* MapViewController.swift */; };
-		40DC970A27A486A700264A0F /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = 40DC970927A486A700264A0F /* MapboxSearch */; };
-		40DC970C27A486A700264A0F /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 40DC970B27A486A700264A0F /* MapboxSearchUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40DC970A27A486A700264A0F /* MapboxSearch in Frameworks */,
-				40DC970C27A486A700264A0F /* MapboxSearchUI in Frameworks */,
-				40DC970327A475ED00264A0F /* MapboxCoreNavigation in Frameworks */,
-				40DC970527A475ED00264A0F /* MapboxNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,10 +199,6 @@
 			);
 			name = ifkadyrovPW7;
 			packageProductDependencies = (
-				40DC970227A475ED00264A0F /* MapboxCoreNavigation */,
-				40DC970427A475ED00264A0F /* MapboxNavigation */,
-				40DC970927A486A700264A0F /* MapboxSearch */,
-				40DC970B27A486A700264A0F /* MapboxSearchUI */,
 			);
 			productName = ifkadyrovPW7;
 			productReference = 404AB97A27A1A7C4004FD9E1 /* ifkadyrovPW7.app */;
@@ -284,8 +272,6 @@
 			);
 			mainGroup = 404AB97127A1A7C4004FD9E1;
 			packageReferences = (
-				40DC970127A475ED00264A0F /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
-				40DC970827A486A700264A0F /* XCRemoteSwiftPackageReference "search-ios" */,
 			);
 			productRefGroup = 404AB97B27A1A7C4004FD9E1 /* Products */;
 			projectDirPath = "";
@@ -660,48 +646,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		40DC970127A475ED00264A0F /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/mapbox-navigation-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = 2.2.0;
-			};
-		};
-		40DC970827A486A700264A0F /* XCRemoteSwiftPackageReference "search-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/search-ios.git";
-			requirement = {
-				kind = exactVersion;
-				version = "1.0.0-beta.22";
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		40DC970227A475ED00264A0F /* MapboxCoreNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 40DC970127A475ED00264A0F /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
-			productName = MapboxCoreNavigation;
-		};
-		40DC970427A475ED00264A0F /* MapboxNavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 40DC970127A475ED00264A0F /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
-			productName = MapboxNavigation;
-		};
-		40DC970927A486A700264A0F /* MapboxSearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 40DC970827A486A700264A0F /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearch;
-		};
-		40DC970B27A486A700264A0F /* MapboxSearchUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 40DC970827A486A700264A0F /* XCRemoteSwiftPackageReference "search-ios" */;
-			productName = MapboxSearchUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 404AB97227A1A7C4004FD9E1 /* Project object */;
 }
